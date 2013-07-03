@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>untitled</title>
+	<meta name="author" content="Jaimin Patel">
+	<script src="jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<style>
+	.text_box {
+		font-family: Tahoma;
+		font-size: 14px;
+		color: #000000;
+		line-height: 22px;
+		border: solid 1px #cdcdcd;
+		width: 280px;
+	}
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function(){ 
+		
+		//Need to find why firefox doesn't support audio
+		$("#speak-btn").click(function(){
+			src_text = $("#sample-text").val();
+			$('#audioPlayer').attr('src','http://api.voicerss.org/?key=5d4ea1b448004b7fa6df011fbdeec6fa&hl=en-us&src='+src_text);
+		});
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<textarea id="sample-text" rows="6" style="width:600px;" class="text_box"></textarea>
+		<div id="speak-btn">
+			<input type="button" value="Speak!" style="height:32px;width:100px;"></input>
+		</div>
+		<div>
+			<audio id="audioPlayer" autoplay="autoplay" src="http://api.voicerss.org/?key=5d4ea1b448004b7fa6df011fbdeec6fa&hl=en-us&src=testing"></audio>
+		</div>
+	</div>
+</body>
+</html>
+
